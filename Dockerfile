@@ -1,8 +1,7 @@
-FROM alpine:edge
+FROM alpine:latest
 
 RUN \
     # Install required packages
-    echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk --update --upgrade add \
       bash \
       fluxbox \
@@ -17,7 +16,7 @@ RUN \
     rm -rf /root/noVNC/.git && \
     rm -rf /root/noVNC/utils/websockify/.git && \
     apk del git && \
-    sed -i -- "s/ps -p/ps -o pid | grep/g" /root/noVNC/utils/launch.sh
+    ln -s /root/noVNC/vnc.html /root/noVNC/index.html
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 8080
