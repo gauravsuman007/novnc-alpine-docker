@@ -7,7 +7,7 @@ This repository provides the base image of noVNC.
 You can run this image as follows.
 
 ```bash
-$ docker run -it --rm -p 8080:8080 uphy/novnc-alpine
+$ docker run -it --rm -p 8080:8080 gauravsuman007/novnc-alpine
 ```
 
 Please extend this image and install the GUI apps you want,
